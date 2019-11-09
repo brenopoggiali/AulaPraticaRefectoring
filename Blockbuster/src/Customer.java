@@ -1,3 +1,6 @@
+import java.util.Vector;
+import java.util.Enumeration;
+
 
 public class Customer {
 	 private String _name;
@@ -8,7 +11,7 @@ public class Customer {
 	   };
 
 	   public void addRental(Rental arg) {
-		   rentals.addElement(arg);
+		   _rentals.addElement(arg);
 	   }
 	   public String getName (){
 	      return _name;
@@ -17,7 +20,7 @@ public class Customer {
 	  public String statement() {
 	     double totalAmount = 0;
 	     int frequentRenterPoints = 0;
-	     Enumeration rentals = rentals.elements();
+	     Enumeration rentals = _rentals.elements();
 	     String result = "Rental Record for " + getName() + "\n";
 	     while (rentals.hasMoreElements()) {
 	        double thisAmount = 0;
@@ -57,4 +60,5 @@ public class Customer {
 	     result += "You earned " + String.valueOf(frequentRenterPoints) +
 	             " frequent renter points";
 	     return result;
+	  }
 }
